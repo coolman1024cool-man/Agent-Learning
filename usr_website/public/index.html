@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敏實科技大學 USR 計畫中心 - 成果展示</title>
+    <!-- 使用 Bootstrap 5 CDN 快速套用美觀排版 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .header-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 2px solid #0056b3;
+            background-color: white;
+        }
+        .header-logos img {
+            max-height: 80px;
+            object-fit: contain;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0056b3 0%, #00882b 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .hero-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .section-title {
+            color: #0056b3;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: #00882b;
+            display: block;
+            margin: 10px auto 0;
+        }
+        .highlight-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            color: #00882b;
+            margin-bottom: 15px;
+        }
+        .partner-badge {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            display: inline-block;
+            font-weight: 500;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頁首：Logo 區塊 -->
+    <header class="bg-white sticky-top">
+        <div class="container">
+            <div class="header-logos">
+                <img src="logo.png" alt="敏實科技大學 Logo" class="img-fluid">
+                <img src="usr_logo.jpg" alt="USR 計畫中心 Logo" class="img-fluid">
+            </div>
+        </div>
+    </header>
+
+    <!-- 橫幅英雄區塊 -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">敏實科技大學 USR 計畫中心</h1>
+            <p class="hero-subtitle">「創新共榮，攜手建設責任社會」<br>AI 敏捷應用在 ESG 碳中和與農業領域合作</p>
+        </div>
+    </section>
+
+    <!-- 核心亮點成果區塊 -->
+    <section class="container mb-5">
+        <h2 class="section-title">六大亮點成果</h2>
+        <div class="row g-4">
+            
+            <!-- 亮點 1 -->
+            <div class="col-md-4">
+                <div class="card highlight-card p-4 text-center">
+                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                    <h5 class="card-title fw-bold">牛軋糖 × 碳足跡 × 碳中和</h5>
+                    <p class="card-text text-muted mt-3">完成牛軋糖產品碳足跡盤查，成功達成碳中和。<br>透過 ISO 14067 盤查、ISO 14068-1 抵換碳權。</p>
+                </div>
+            </div>
+
+            <!-- 亮點 2 -->
+            <div class="col-md-4">
+                <div class="card highlight-card p-4 text-center">
+                    <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h5 class="card-title fw-bold">ESG 教育推廣 × 校園永續實踐</h5>
+                    <p class="card-text text-muted mt-3">推動師生參與碳盤查與碳中和實務。<br>完成 18 家企業碳盤查輔導，辦理 21 場講習，培訓 717 位師生。</p>
+                </div>
+            </div>
+
+            <!-- 亮點 3 -->
+            <div class="col-md-4">
+                <div class="card highlight-card p-4 text-center">
+                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                    <h5 class="card-title fw-bold">富農合作社 × AI 杭菊</h5>
+                    <p class="card-text text-muted mt-3">導入 AI 智慧技術，收集杭菊的烘焙曲線，建立最佳模型。<br>自動偵測、自動控制，提升杭菊烘焙技術與成效。</p>
+                </div>
+            </div>
+
+            <!-- 亮點 4 -->
+            <div class="col-md-4">
+                <div class="card highlight-card p-4 text-center">
+                    <div class="card-icon"><i class="fas fa-wifi"></i></div>
+                    <h5 class="card-title fw-bold">上展茶園 × AIOT 即時監測</h5>
+                    <p class="card-text text-muted mt-3">即時監控茶園溫濕度與土壤狀況。<br>數據視覺化，輔助農民進行精準決策。</p>
+                </div>
+            </div>
+
+            <!-- 亮點 5 -->
+            <div class="col-md-4">
+                <div class="card highlight-card p-4 text-center">
+                    <div class="card-icon"><i class="fas fa-utensils"></i></div>
+                    <h5 class="card-title fw-bold">芎林鄉農會 × 番茄出任務</h5>
+                    <p class="card-text text-muted mt-3">開發特色加工品「番茄牛肉麵」、「番茄糕點」。<br>結合在地農產與師生創新配方，推廣在地美食。</p>
+                </div>
+            </div>
+
+            <!-- 亮點 6 -->
+            <div class="col-md-4">
+                <div class="card highlight-card p-4 text-center">
+                    <div class="card-icon"><i class="fas fa-video"></i></div>
+                    <h5 class="card-title fw-bold">敏實電視台 × 校園 ESG 傳播力</h5>
+                    <p class="card-text text-muted mt-3">師生自製短片推廣 USR 與永續行動。<br>已製作超過 20 支推廣影片，擴大社會影響力。</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 在地合作夥伴區塊 -->
+    <section class="container mb-5 text-center">
+        <h2 class="section-title">深耕在地合作夥伴</h2>
+        <p class="mb-4">我們結合在地產業與大學資源，培養具競爭力的技職專業人才。</p>
+        <div>
+            <span class="partner-badge">芎林鄉農會</span>
+            <span class="partner-badge">寶山鄉農會</span>
+            <span class="partner-badge">紙寮窩造紙文化協會</span>
+            <span class="partner-badge">拓緯實業股份有限公司</span>
+            <span class="partner-badge">富農農產運銷合作社</span>
+            <span class="partner-badge">新華茶園</span>
+            <span class="partner-badge">上展茶園</span>
+            <span class="partner-badge">洛夫農場</span>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
+        <div class="container">
+            <p class="mb-0">© 2026 敏實科技大學 人工智慧專業大學. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
