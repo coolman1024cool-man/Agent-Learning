@@ -1,0 +1,17 @@
+# 開發環境產生的暫存檔與依賴檔
+node_modules/
+.npm/
+
+# Firebase 本機除錯與暫存檔 (避免上傳到 GitHub)
+.firebase/
+firebase-debug.log*
+
+# 作業系統產生的系統檔
+.DS_Store
+Thumbs.db
+
+# Python 暫存檔
+__pycache__/
+*.pyc
+.venv/
+env/
