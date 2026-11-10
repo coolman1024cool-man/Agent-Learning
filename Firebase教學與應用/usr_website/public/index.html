@@ -2,182 +2,759 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>敏實科技大學 USR 計畫中心 - 成果展示</title>
-    <!-- 使用 Bootstrap 5 CDN 快速套用美觀排版 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>敏實科技大學 USR 計畫中心</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome for icons -->
+    <!-- FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --minth-blue: #0056b3;
+            --minth-dark: #0a2540;
+            --usr-green: #00882b;
+            --accent-orange: #f26522;
+            --light-bg: #f8fafc;
+        }
+
         body {
-            font-family: 'Microsoft JhengHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'Segoe UI', sans-serif;
+            background-color: var(--light-bg);
+            color: #334155;
+            scroll-behavior: smooth;
         }
-        .header-logos {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 2px solid #0056b3;
-            background-color: white;
+
+        /* 1. 頂部導覽列：精巧俐落、單行不折行 */
+        .navbar-custom {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 8px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1030;
         }
-        .header-logos img {
-            max-height: 80px;
+        .nav-logo {
+            height: 42px;
             object-fit: contain;
         }
+        @media (max-width: 576px) {
+            .nav-logo {
+                height: 34px;
+            }
+        }
+        .nav-title-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1e293b;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 576px) {
+            .nav-title-text {
+                font-size: 0.9rem;
+            }
+        }
+        .nav-link-btn {
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: #475569 !important;
+            padding: 6px 12px !important;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+        .nav-link-btn:hover {
+            color: var(--minth-blue) !important;
+            background-color: #f1f5f9;
+        }
+        .btn-tv-link {
+            background: linear-gradient(135deg, #e11d48, #be123c);
+            color: white !important;
+            border-radius: 30px;
+            padding: 6px 16px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 3px 10px rgba(225, 29, 72, 0.25);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        .btn-tv-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 14px rgba(225, 29, 72, 0.35);
+            color: white !important;
+        }
+        @media (max-width: 576px) {
+            .btn-tv-link {
+                padding: 5px 12px;
+                font-size: 0.78rem;
+            }
+        }
+
+        /* 主視覺 Hero 區域：適度縮小高度，純淨藍綠漸層 */
         .hero-section {
             background: linear-gradient(135deg, #0056b3 0%, #00882b 100%);
             color: white;
-            padding: 60px 0;
+            padding: 34px 0 38px 0;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
         .hero-title {
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 2.35rem;
+            }
         }
         .hero-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.02rem;
+            opacity: 0.92;
+            line-height: 1.6;
+            margin-bottom: 16px;
         }
+        .hero-btn {
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: 30px;
+            padding: 5px 18px;
+        }
+
+        /* 標題共用樣式 */
         .section-title {
-            color: #0056b3;
-            font-weight: bold;
-            margin-bottom: 30px;
+            color: var(--minth-blue);
+            font-weight: 800;
+            font-size: 1.7rem;
+            margin-bottom: 25px;
             text-align: center;
             position: relative;
         }
         .section-title::after {
             content: '';
-            width: 60px;
+            width: 45px;
             height: 3px;
-            background-color: #00882b;
+            background-color: var(--usr-green);
             display: block;
-            margin: 10px auto 0;
+            margin: 8px auto 0;
+            border-radius: 2px;
         }
-        .highlight-card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            margin-bottom: 20px;
+
+        /* 計畫推動體系大卡片 (個案 ✕ 校務成果整體) */
+        .plan-box {
+            background: white;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
             height: 100%;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .highlight-card:hover {
-            transform: translateY(-5px);
+        .plan-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
         }
-        .card-icon {
-            font-size: 2.5rem;
-            color: #00882b;
-            margin-bottom: 15px;
-        }
-        .partner-badge {
-            background-color: #e9ecef;
-            color: #495057;
-            padding: 8px 15px;
-            border-radius: 20px;
-            margin: 5px;
-            display: inline-block;
-            font-weight: 500;
-        }
-        footer {
-            background-color: #343a40;
+        .plan-header-case {
+            background: linear-gradient(135deg, #0f4c81, #1e3a8a);
             color: white;
-            padding: 20px 0;
+            padding: 13px 20px;
+            font-weight: 700;
+            font-size: 1.12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .plan-header-school {
+            background: linear-gradient(135deg, #047857, #065f46);
+            color: white;
+            padding: 13px 20px;
+            font-weight: 700;
+            font-size: 1.12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .plan-body {
+            padding: 18px 20px;
+        }
+        .plan-item-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+        .plan-item-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            font-size: 0.95rem;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .plan-item-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .sub-plan-badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+        .btn-view-detail {
+            background-color: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border-radius: 20px;
+            padding: 3px 10px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .btn-view-detail:hover {
+            background-color: #22c55e;
+            color: white;
+            border-color: #22c55e;
+        }
+
+        .school-hub-tag {
+            background-color: #ecfdf5;
+            color: #047857;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #a7f3d0;
+            display: inline-flex;
+            align-items: center;
+            margin: 4px;
+            transition: all 0.2s ease;
+        }
+        .school-hub-tag:hover {
+            background-color: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+
+        /* 縮小版六大亮點成果卡片 (Compact Cards) */
+        .compact-highlight-card {
+            background: white;
+            border: 1px solid #edf2f7;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 18px 16px;
+            height: 100%;
             text-align: center;
-            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .compact-highlight-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+            border-color: #cbd5e1;
+        }
+        .compact-card-icon {
+            font-size: 1.65rem;
+            color: var(--usr-green);
+            margin-bottom: 10px;
+        }
+        .compact-card-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--minth-dark);
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+        .compact-card-text {
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            flex-grow: 1;
+        }
+
+        /* 影音新聞卡片視覺 */
+        .news-video-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: all 0.25s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .news-video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.09);
+        }
+        .news-cover-container {
+            position: relative;
+            background-color: #000;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+        }
+        .news-cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .news-video-card:hover .news-cover-img {
+            transform: scale(1.05);
+        }
+        .news-play-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(225, 29, 72, 0.88);
+            color: white;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .news-video-card:hover .news-play-badge {
+            transform: translate(-50%, -50%) scale(1.15);
+            background: #e11d48;
+        }
+        .news-tag-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            backdrop-filter: blur(4px);
+        }
+        .news-body {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .news-meta {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        .news-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .news-desc {
+            font-size: 0.86rem;
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 14px;
+            flex-grow: 1;
+        }
+
+        /* 成果相簿小網格 (彈窗內部專用) */
+        .sub1-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .sub1-photo-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            background-color: #f1f5f9;
+            aspect-ratio: 4 / 3;
+        }
+        .sub1-photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.2s;
+        }
+        .sub1-photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 合作夥伴徽章 */
+        .partner-badge {
+            background-color: #e2e8f0;
+            color: #334155;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin: 4px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.86rem;
+            transition: all 0.2s;
+        }
+        .partner-badge:hover {
+            background-color: var(--minth-blue);
+            color: white;
+        }
+
+        /* 頁尾 */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 26px 0 18px 0;
+            text-align: center;
+            font-size: 0.86rem;
+            margin-top: 45px;
+        }
+        footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: white;
         }
     </style>
 </head>
 <body>
 
-    <!-- 頁首：Logo 區塊 -->
-    <header class="bg-white sticky-top">
-        <div class="container">
-            <div class="header-logos">
-                <a href="https://www.mitust.edu.tw/" target="_blank" title="前往敏實科技大學官網">
-                    <img src="logo.png" alt="敏實科技大學 Logo" class="img-fluid">
+    <!-- 頂部導覽列：俐落、不折行 -->
+    <header class="navbar-custom">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2 gap-md-3">
+                <a href="#"><img src="logo.png" alt="敏實科技大學" class="nav-logo" onerror="this.src='usr_logo.jpg'"></a>
+                <div class="border-start ps-2 ps-md-3 border-2">
+                    <span class="nav-title-text">大學社會責任 (USR) 推動中心</span>
+                </div>
+            </div>
+
+            <!-- 右側連結功能區 -->
+            <div class="d-flex align-items-center gap-2">
+                <a href="https://acad.mitust.edu.tw/p/412-1004-990.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" class="nav-link-btn d-none d-sm-inline-block">
+                    <i class="fa-solid fa-university text-success me-1"></i> 學校 USR 專區
                 </a>
-                <img src="usr_logo.jpg" alt="USR 計畫中心 Logo" class="img-fluid">
+                <a href="https://minthroc.wixsite.com/minth" target="_blank" rel="noopener noreferrer" class="btn btn-tv-link">
+                    <i class="fa-solid fa-satellite-dish me-1"></i> 敏實全球網路電視台
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- 橫幅英雄區塊 -->
+    <!-- 主視覺橫幅 (縮小高度，乾淨清爽藍綠漸層) -->
     <section class="hero-section">
         <div class="container">
             <h1 class="hero-title">敏實科技大學 USR 計畫中心</h1>
-            <p class="hero-subtitle">「創新共榮，攜手建設責任社會」<br>AI 敏捷應用在 ESG 碳中和與農業領域合作</p>
-            <a href="https://www.mitust.edu.tw/" target="_blank" class="btn btn-outline-light mt-3 px-4 rounded-pill fw-bold">前往敏實科大官網 <i class="fas fa-external-link-alt"></i></a>
+            <p class="hero-subtitle mb-3">
+                「創新共榮，攜手建設責任社會」<br>
+                AI 敏捷應用在 ESG 碳中和與農業領域合作
+            </p>
+            <div class="d-flex justify-content-center gap-2">
+                <a href="https://www.mitust.edu.tw/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light hero-btn">
+                    敏實科大官網 <i class="fas fa-external-link-alt ms-1"></i>
+                </a>
+                <a href="https://acad.mitust.edu.tw/p/412-1004-990.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" class="btn btn-light hero-btn text-primary fw-bold">
+                    教務處 USR 中心 <i class="fa-solid fa-arrow-right ms-1"></i>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- 核心亮點成果區塊 -->
-    <section class="container mb-5">
-        <h2 class="section-title">六大亮點成果</h2>
+    <!-- 主內容區塊 1：USR 計畫推動體系（個案 ✕ 校務成果整體） -->
+    <section id="plans-section" class="container mb-5">
+        <h2 class="section-title">USR 計畫推動體系</h2>
         <div class="row g-4">
             
+            <!-- 左欄：個案計畫（子計畫 1 支援點擊查看成果詳情） -->
+            <div class="col-lg-6">
+                <div class="plan-box">
+                    <div class="plan-header-case">
+                        <span><i class="fa-solid fa-diagram-project me-2"></i>【個案計畫】核心子計畫體系</span>
+                        <span class="badge bg-light text-dark fw-bold">教育部個案</span>
+                    </div>
+                    <div class="plan-body">
+                        <ul class="plan-item-list">
+                            <!-- 子計畫 1 (創生共學 AI 及 ESG 智慧創新平台) -->
+                            <li class="bg-primary-subtle p-2 rounded-3 border border-primary-subtle mb-2">
+                                <div class="d-flex align-items-center">
+                                    <span class="sub-plan-badge bg-primary text-white">子計畫 1</span>
+                                    <strong class="text-primary">創生共學 AI 及 ESG 智慧創新平台構建與推廣</strong>
+                                </div>
+                                <button type="button" class="btn-view-detail ms-2" data-bs-toggle="modal" data-bs-target="#sub1DetailModal">
+                                    <i class="fa-solid fa-images me-1"></i> 查看成果紀實
+                                </button>
+                            </li>
+                            <!-- 子計畫 2 (AI 技術應用在農業領域合作) -->
+                            <li class="bg-primary-subtle p-2 rounded-3 border border-primary-subtle mb-2">
+                                <div class="d-flex align-items-center">
+                                    <span class="sub-plan-badge bg-primary text-white">子計畫 2</span>
+                                    <strong class="text-primary">AI 技術應用在農業領域合作</strong>
+                                </div>
+                                <button type="button" class="btn-view-detail ms-2" data-bs-toggle="modal" data-bs-target="#sub2DetailModal">
+                                    <i class="fa-solid fa-images me-1"></i> 查看成果紀實
+                                </button>
+                            </li>
+                            <!-- 子計畫 3 (AI 及 ESG 食農教育特色餐飲分項計畫推動) -->
+                            <li class="bg-primary-subtle p-2 rounded-3 border border-primary-subtle mb-2">
+                                <div class="d-flex align-items-center">
+                                    <span class="sub-plan-badge bg-primary text-white">子計畫 3</span>
+                                    <strong class="text-primary">AI 及 ESG 食農教育特色餐飲分項計畫推動</strong>
+                                </div>
+                                <button type="button" class="btn-view-detail ms-2" data-bs-toggle="modal" data-bs-target="#sub3DetailModal">
+                                    <i class="fa-solid fa-images me-1"></i> 查看成果紀實
+                                </button>
+                            </li>
+                            <!-- 子計畫 4 (AI 智慧減碳旅遊城鄉體驗) -->
+                            <li class="bg-primary-subtle p-2 rounded-3 border border-primary-subtle mb-2">
+                                <div class="d-flex align-items-center">
+                                    <span class="sub-plan-badge bg-primary text-white">子計畫 4</span>
+                                    <strong class="text-primary">AI 智慧減碳旅遊城鄉體驗</strong>
+                                </div>
+                                <button type="button" class="btn-view-detail ms-2" data-bs-toggle="modal" data-bs-target="#sub4DetailModal">
+                                    <i class="fa-solid fa-images me-1"></i> 查看成果紀實
+                                </button>
+                            </li>
+                            <!-- 子計畫 5 (ESG 碳中和推展分項計畫推動) -->
+                            <li class="bg-primary-subtle p-2 rounded-3 border border-primary-subtle">
+                                <div class="d-flex align-items-center">
+                                    <span class="sub-plan-badge bg-primary text-white">子計畫 5</span>
+                                    <strong class="text-primary">ESG 碳中和推展分項計畫推動</strong>
+                                </div>
+                                <button type="button" class="btn-view-detail ms-2" data-bs-toggle="modal" data-bs-target="#sub5DetailModal">
+                                    <i class="fa-solid fa-images me-1"></i> 查看成果紀實
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右欄：校務計畫（一整塊校務呈現，聚焦高成效亮點） -->
+            <div class="col-lg-6">
+                <div class="plan-box">
+                    <div class="plan-header-school">
+                        <span><i class="fa-solid fa-school-flag me-2"></i>【校務計畫】在地深耕與跨域成果</span>
+                        <span class="badge bg-light text-dark fw-bold">校務深耕</span>
+                    </div>
+                    <div class="plan-body d-flex flex-column justify-content-between h-100" style="min-height: 250px;">
+                        <div>
+                            <p class="text-muted small mb-3">
+                                結合全校各系所跨領域能量，精選具備顯著推動成效與地方鏈結之實踐成果，深化客庄在地創生與人才職能培育：
+                            </p>
+                            <!-- 依手寫稿精選高成效之校務成果徽章群 -->
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="school-hub-tag"><i class="fa-solid fa-bowl-food me-2 text-success"></i>在地食農養生菜料理</span>
+                                <span class="school-hub-tag"><i class="fa-solid fa-hands-holding-child me-2 text-primary"></i>大手牽小手食農教育</span>
+                                <span class="school-hub-tag"><i class="fa-solid fa-road me-2 text-warning"></i>台三線綠農創行</span>
+                                <span class="school-hub-tag"><i class="fa-solid fa-handshake-angle me-2 text-danger"></i>USR ✕ CSR 永續鏈結</span>
+                                <span class="school-hub-tag"><i class="fa-solid fa-synagogue me-2 text-info"></i>客家地方宗教信仰文化</span>
+                                <span class="school-hub-tag"><i class="fa-solid fa-shield-halved me-2 text-success"></i>食品安全職能強化</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+                            <small class="text-secondary"><i class="fa-solid fa-circle-check text-success me-1"></i>聚焦亮點落實成效</small>
+                            <a href="https://acad.mitust.edu.tw/p/412-1004-990.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success btn-sm rounded-pill px-3 fw-bold">
+                                檢視學校 USR 詳情 <i class="fa-solid fa-angle-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 主內容區塊 2：縮小版「六大核心亮點成果」 -->
+    <section id="highlights-section" class="container mb-5">
+        <h2 class="section-title">六大核心亮點成果</h2>
+        <div class="row g-3">
+            
             <!-- 亮點 1 -->
-            <div class="col-md-4">
-                <div class="card highlight-card p-4 text-center">
-                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
-                    <h5 class="card-title fw-bold">牛軋糖 × 碳足跡 × 碳中和</h5>
-                    <p class="card-text text-muted mt-3">完成牛軋糖產品碳足跡盤查，成功達成碳中和。<br>透過 ISO 14067 盤查、ISO 14068-1 抵換碳權。</p>
+            <div class="col-md-4 col-sm-6">
+                <div class="compact-highlight-card">
+                    <div>
+                        <div class="compact-card-icon"><i class="fas fa-leaf"></i></div>
+                        <h3 class="compact-card-title">牛軋糖 × 碳足跡 × 碳中和</h3>
+                        <p class="compact-card-text">完成產品碳足跡盤查，透過 ISO 14067 與 ISO 14068-1 抵換碳權，成功達成碳中和。</p>
+                    </div>
+                    <span class="badge bg-light text-secondary border">碳中和標竿</span>
                 </div>
             </div>
 
             <!-- 亮點 2 -->
-            <div class="col-md-4">
-                <div class="card highlight-card p-4 text-center">
-                    <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h5 class="card-title fw-bold">ESG 教育推廣 × 校園永續實踐</h5>
-                    <p class="card-text text-muted mt-3">推動師生參與碳盤查與碳中和實務。<br>完成 18 家企業碳盤查輔導，辦理 21 場講習，培訓 717 位師生。</p>
+            <div class="col-md-4 col-sm-6">
+                <div class="compact-highlight-card">
+                    <div>
+                        <div class="compact-card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3 class="compact-card-title">ESG 教育推廣 × 校園實踐</h3>
+                        <p class="compact-card-text">推動師生參與碳盤查實務，完成 18 家企業輔導、辦理 21 場講習，培訓 717 位師生。</p>
+                    </div>
+                    <span class="badge bg-light text-secondary border">產學輔導培力</span>
                 </div>
             </div>
 
             <!-- 亮點 3 -->
-            <div class="col-md-4">
-                <div class="card highlight-card p-4 text-center">
-                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
-                    <h5 class="card-title fw-bold">富農合作社 × AI 杭菊</h5>
-                    <p class="card-text text-muted mt-3">導入 AI 智慧技術，收集杭菊的烘焙曲線，建立最佳模型。<br>自動偵測、自動控制，提升杭菊烘焙技術與成效。</p>
+            <div class="col-md-4 col-sm-6">
+                <div class="compact-highlight-card">
+                    <div>
+                        <div class="compact-card-icon"><i class="fas fa-seedling"></i></div>
+                        <h3 class="compact-card-title">富農合作社 × AI 杭菊</h3>
+                        <p class="compact-card-text">導入 AI 智慧技術收集杭菊烘焙曲線，建立最佳自控模型，大幅提升烘焙良率與成效。</p>
+                    </div>
+                    <span class="badge bg-light text-secondary border">智慧農業賦能</span>
                 </div>
             </div>
 
             <!-- 亮點 4 -->
-            <div class="col-md-4">
-                <div class="card highlight-card p-4 text-center">
-                    <div class="card-icon"><i class="fas fa-wifi"></i></div>
-                    <h5 class="card-title fw-bold">上展茶園 × AIOT 即時監測</h5>
-                    <p class="card-text text-muted mt-3">即時監控茶園溫濕度與土壤狀況。<br>數據視覺化，輔助農民進行精準決策。</p>
+            <div class="col-md-4 col-sm-6">
+                <div class="compact-highlight-card">
+                    <div>
+                        <div class="compact-card-icon"><i class="fas fa-wifi"></i></div>
+                        <h3 class="compact-card-title">上展茶園 × AIOT 即時監測</h3>
+                        <p class="compact-card-text">即時監控茶園溫濕度與土壤環境，透過數據視覺化儀表板，輔助茶農精準決策管理。</p>
+                    </div>
+                    <span class="badge bg-light text-secondary border">物聯網精準農業</span>
                 </div>
             </div>
 
             <!-- 亮點 5 -->
-            <div class="col-md-4">
-                <div class="card highlight-card p-4 text-center">
-                    <div class="card-icon"><i class="fas fa-utensils"></i></div>
-                    <h5 class="card-title fw-bold">芎林鄉農會 × 番茄出任務</h5>
-                    <p class="card-text text-muted mt-3">開發特色加工品「番茄牛肉麵」、「番茄糕點」。<br>結合在地農產與師生創新配方，推廣在地美食。</p>
+            <div class="col-md-4 col-sm-6">
+                <div class="compact-highlight-card">
+                    <div>
+                        <div class="compact-card-icon"><i class="fas fa-utensils"></i></div>
+                        <h3 class="compact-card-title">芎林鄉農會 × 番茄出任務</h3>
+                        <p class="compact-card-text">開發「番茄牛肉麵」與「番茄糕點」特色加工品，結合師生創新配方推廣在地優質農產。</p>
+                    </div>
+                    <span class="badge bg-light text-secondary border">地方美食創生</span>
                 </div>
             </div>
 
-            <!-- 亮點 6 -->
-            <div class="col-md-4">
-                <div class="card highlight-card p-4 text-center">
-                    <div class="card-icon"><i class="fas fa-video"></i></div>
-                    <h5 class="card-title fw-bold">敏實電視台 × 校園 ESG 傳播力</h5>
-                    <p class="card-text text-muted mt-3">師生自製短片推廣 USR 與永續行動。<br>已製作超過 20 支推廣影片，擴大社會影響力。</p>
+            <!-- 亮點 6 (點擊播放最新影片彈窗) -->
+            <div class="col-md-4 col-sm-6">
+                <div class="compact-highlight-card border-primary-subtle" style="background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);">
+                    <div>
+                        <div class="compact-card-icon text-primary"><i class="fas fa-video"></i></div>
+                        <h3 class="compact-card-title">敏實電視台 × 影音傳播力</h3>
+                        <p class="compact-card-text">自製短片推廣 USR 與在地創生行動，已製作超過 20 支推廣影片，擴大社會影響力。</p>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary btn-sm rounded-pill fw-bold w-100" data-bs-toggle="modal" data-bs-target="#videoModal">
+                        <i class="fa-solid fa-play me-1"></i> 播放杭菊節最新影片
+                    </button>
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- 主內容區塊 3：影音聯播專區（新聞視覺卡片，精選最新三則，導流敏實電視台） -->
+    <section class="container mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h3 class="fw-bold text-dark mb-0" style="font-size: 1.4rem;">
+                    <i class="fa-solid fa-newspaper text-primary me-2"></i>影音新聞最新快訊
+                </h3>
+                <small class="text-muted">匯整近期最新三大焦點活動紀錄，完整影音聯播請前往官方電視台</small>
+            </div>
+            <a href="https://minthroc.wixsite.com/minth" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-bold d-none d-sm-inline-flex align-items-center">
+                <i class="fa-solid fa-tv me-1"></i> 前往電視台觀看全部聯播
+            </a>
+        </div>
+
+        <div class="row g-3">
+            <!-- 新聞影片 1：銅鑼杭菊節 (可點擊直接彈窗播放) -->
+            <div class="col-md-4">
+                <div class="news-video-card">
+                    <div class="news-cover-container" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#videoModal">
+                        <img src="cover_hangju.jpg" alt="苗栗銅鑼杭菊節啟動記者會" class="news-cover-img" onerror="this.src='usr_team.jpg'">
+                        <span class="news-tag-badge"><i class="fa-solid fa-bolt text-warning me-1"></i>最新發布</span>
+                        <div class="news-play-badge"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div class="news-body">
+                        <div class="news-meta"><i class="fa-regular fa-calendar-check me-1"></i> 115年11月5日 ｜ 產學推廣</div>
+                        <h4 class="news-title">苗栗銅鑼杭菊節啟動記者會 ✕ USR 產學推廣</h4>
+                        <p class="news-desc">展示地方智慧農產創生、杭菊生活節花季推廣與敏實科大智慧農業導入全紀錄。</p>
+                        <button type="button" class="btn btn-primary btn-sm rounded-pill fw-bold w-100" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            <i class="fa-solid fa-circle-play me-1"></i> 觀看精華影片
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新聞影片 2：客家文化國際交流 (常磐大學方口獅) -->
+            <div class="col-md-4">
+                <div class="news-video-card">
+                    <a href="https://minthroc.wixsite.com/minth" target="_blank" rel="noopener noreferrer" class="news-cover-container d-block text-decoration-none">
+                        <img src="cover_lion.jpg" alt="常磐大學客家文化方口獅體驗" class="news-cover-img" onerror="this.src='usr_team.jpg'">
+                        <span class="news-tag-badge"><i class="fa-solid fa-globe text-info me-1"></i>國際文化交流</span>
+                        <div class="news-play-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+                    <div class="news-body">
+                        <div class="news-meta"><i class="fa-regular fa-calendar-check me-1"></i> 115年9月17日 ｜ 文化共融</div>
+                        <h4 class="news-title">常磐大學國際交流：客家方口獅文化彩繪</h4>
+                        <p class="news-desc">日本常磐大學師生蒞校交流，親身體驗客庄傳統方口獅彩繪與民俗工藝之美。</p>
+                        <a href="https://minthroc.wixsite.com/minth" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm rounded-pill fw-bold w-100">
+                            <i class="fa-solid fa-tv me-1"></i> 電視台觀看聯播
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新聞影片 3：半導體AI賦能暨智慧能源揭牌 -->
+            <div class="col-md-4">
+                <div class="news-video-card">
+                    <a href="https://minthroc.wixsite.com/minth" target="_blank" rel="noopener noreferrer" class="news-cover-container d-block text-decoration-none">
+                        <img src="cover_energy.jpg" alt="半導體AI賦能暨智慧能源揭牌" class="news-cover-img" onerror="this.src='usr_team.jpg'">
+                        <span class="news-tag-badge"><i class="fa-solid fa-atom text-success me-1"></i>產學研發</span>
+                        <div class="news-play-badge"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                    </a>
+                    <div class="news-body">
+                        <div class="news-meta"><i class="fa-regular fa-calendar-check me-1"></i> 115年6月9日 ｜ 智慧能源</div>
+                        <h4 class="news-title">半導體 AI 賦能暨智慧能源研發中心揭牌</h4>
+                        <p class="news-desc">攜手產官學研推動綠能減碳技術與前瞻半導體研發，奠定智慧綠能技術基石。</p>
+                        <a href="https://minthroc.wixsite.com/minth" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm rounded-pill fw-bold w-100">
+                            <i class="fa-solid fa-tv me-1"></i> 電視台觀看聯播
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 手機版電視台前往按鈕 -->
+        <div class="text-center mt-3 d-sm-none">
+            <a href="https://minthroc.wixsite.com/minth" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm rounded-pill px-4 fw-bold">
+                <i class="fa-solid fa-tv me-1"></i> 前往電視台觀看全部聯播
+            </a>
         </div>
     </section>
 
     <!-- 在地合作夥伴區塊 -->
     <section class="container mb-5 text-center">
         <h2 class="section-title">深耕在地合作夥伴</h2>
-        <p class="mb-4">我們結合在地產業與大學資源，培養具競爭力的技職專業人才。</p>
+        <p class="text-muted small mb-4">我們結合在地產業與大學研發資源，攜手永續深耕。</p>
         <div>
             <span class="partner-badge">芎林鄉農會</span>
             <span class="partner-badge">寶山鄉農會</span>
@@ -190,14 +767,989 @@
         </div>
     </section>
 
+    <!-- 🌟 子計畫 1 專屬成果紀實彈窗 (Subproject 1 Modal) 🌟 -->
+    <div class="modal fade" id="sub1DetailModal" tabindex="-1" aria-labelledby="sub1ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+                <div class="modal-header bg-primary text-white border-0 py-3">
+                    <div>
+                        <span class="badge bg-white text-primary fw-bold mb-1">教育部個案計畫 ｜ 執行成果紀實</span>
+                        <h4 class="modal-title fw-bold mb-0" id="sub1ModalLabel" style="font-size: 1.35rem;">
+                            子計畫 1：創生共學 AI 及 ESG 智慧創新平台構建與推廣
+                        </h4>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4" style="background-color: #f8fafc;">
+                    
+                    <!-- 計畫宗旨簡介卡片 -->
+                    <div class="p-3 bg-white rounded-3 border mb-4 shadow-sm">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <span class="badge bg-success"><i class="fa-solid fa-flag me-1"></i>計畫核心目標</span>
+                            <span class="text-muted small">主持人：吳仁明 ｜ 預算代碼：114-168-115C01-04</span>
+                        </div>
+                        <p class="text-secondary small mb-0 leading-relaxed">
+                            本分項計畫旨在結合生成式 AI（Agentic AI）與物聯網創新技術，導入在地客庄農業與偏鄉教育。透過建置敏實全球網路電視台直播系統、舉辦全校 AI Agent 專案成果發表競賽，以及地方客家文化生態實地參訪，培育跨領域智慧科技應用人才，落實大學社會責任與產業共學共好。
+                        </p>
+                    </div>
+
+                    <!-- 活動成果專案 1：2026 AI Agent 專案成果發表競賽 -->
+                    <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                            <h5 class="fw-bold text-dark mb-0">
+                                <i class="fa-solid fa-trophy text-warning me-2"></i>活動一：敏實科技大學「2026 AI Agent 專案成果發表」競賽
+                            </h5>
+                            <span class="badge bg-light text-secondary border">115年9月2日～9月3日</span>
+                        </div>
+                        <p class="text-muted small mb-2">
+                            辦理全校行政組與教學組 AI Agent 專案競賽，鼓勵全校教職員運用 AI 自動化解決行政核銷、教案設計與 USR 成果排版等實務痛點，由副校長及專業評審現場評核頒獎。
+                        </p>
+                        <!-- 多人活動紀實相簿 -->
+                        <div class="sub1-photo-grid">
+                            <div class="sub1-photo-item"><img src="assets/sub1/event1_ai_agent/活動紀實照片_01.jpeg" alt="競賽現場合照"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event1_ai_agent/活動紀實照片_02.jpeg" alt="行政組參賽簡報"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event1_ai_agent/活動紀實照片_03.jpeg" alt="教學組發表互動"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event1_ai_agent/活動紀實照片_04.jpeg" alt="同仁專案展示"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event1_ai_agent/活動紀實照片_05.jpeg" alt="評審提問與交流"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event1_ai_agent/活動紀實照片_06.jpeg" alt="頒獎與榮譽留影"></div>
+                        </div>
+                    </div>
+
+                    <!-- 活動成果專案 2：敏實全球網路電視台工作坊 -->
+                    <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                            <h5 class="fw-bold text-dark mb-0">
+                                <i class="fa-solid fa-satellite-dish text-danger me-2"></i>活動二：敏實全球網路電視台系統建置與操作工作坊
+                            </h5>
+                            <span class="badge bg-light text-secondary border">113年11月6日</span>
+                        </div>
+                        <p class="text-muted small mb-2">
+                            建置全校型全球網路電視台雲端串流平台，邀請專業講師指導師生進行直播器材、錄影腳架、多音軌混音及 OBS 數位導播操作實務，大幅提升 USR 影音傳播自主能量。
+                        </p>
+                        <div class="sub1-photo-grid">
+                            <div class="sub1-photo-item"><img src="assets/sub1/event2_tv_workshop/活動紀實照片_01.jpeg" alt="電視台工作坊合照"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event2_tv_workshop/活動紀實照片_02.png" alt="講師實機演示"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event2_tv_workshop/活動紀實照片_03.png" alt="學員實作體驗"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event2_tv_workshop/活動紀實照片_04.png" alt="師生聆聽講解"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event2_tv_workshop/活動紀實照片_05.png" alt="現場導播台設定"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event2_tv_workshop/活動紀實照片_06.png" alt="團隊實機演練"></div>
+                        </div>
+                    </div>
+
+                    <!-- 活動成果專案 3：芎林鹿寮坑客家文化與生態參訪 -->
+                    <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                            <h5 class="fw-bold text-dark mb-0">
+                                <i class="fa-solid fa-mountain-sun text-success me-2"></i>活動三：芎林鹿寮坑客家文化與生態創生參訪
+                            </h5>
+                            <span class="badge bg-light text-secondary border">114年3月27日</span>
+                        </div>
+                        <p class="text-muted small mb-2">
+                            帶領師生實地深入芎林鹿寮坑客庄聚落，進行九昇巨石文化導覽與客家傳統生態踏查，深化青年學子對在地文史與鄉土環境之認同。
+                        </p>
+                        <div class="sub1-photo-grid">
+                            <div class="sub1-photo-item"><img src="assets/sub1/event3_luliaokeng/活動紀實照片_01.jpeg" alt="鹿寮坑大合照"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event3_luliaokeng/活動紀實照片_02.jpeg" alt="巨石文化導覽"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event3_luliaokeng/活動紀實照片_03.jpeg" alt="師生生態踏查"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event3_luliaokeng/活動紀實照片_04.jpeg" alt="地方耆老解說"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event3_luliaokeng/活動紀實照片_05.jpeg" alt="實地參訪交流"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event3_luliaokeng/活動紀實照片_06.jpeg" alt="步道生態體驗"></div>
+                        </div>
+                    </div>
+
+                    <!-- 活動成果專案 4：卓越經營品質精實改善講座 -->
+                    <div class="bg-white p-3 rounded-3 border shadow-sm">
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                            <h5 class="fw-bold text-dark mb-0">
+                                <i class="fa-solid fa-chart-line text-info me-2"></i>活動四：卓越經營品質精實改善的方法專題講座
+                            </h5>
+                            <span class="badge bg-light text-secondary border">115年8月10日</span>
+                        </div>
+                        <p class="text-muted small mb-2">
+                            邀請品質管理專家蒞校演講，針對 USR 計畫執行流程、校務行政品質與精實管理進行專案輔導與經驗分享。
+                        </p>
+                        <div class="sub1-photo-grid">
+                            <div class="sub1-photo-item"><img src="assets/sub1/event4_quality/活動紀實照片_01.jpeg" alt="副校長致詞留影"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event4_quality/活動紀實照片_02.jpeg" alt="講師與同仁提問"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event4_quality/活動紀實照片_03.jpeg" alt="教職員專注研討"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event4_quality/活動紀實照片_04.jpeg" alt="精實改善座談"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event4_quality/活動紀實照片_05.jpeg" alt="跨系所交流互動"></div>
+                            <div class="sub1-photo-item"><img src="assets/sub1/event4_quality/活動紀實照片_06.jpeg" alt="研習活動大合照"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer bg-white border-0 py-3">
+                    <button type="button" class="btn btn-secondary btn-sm rounded-pill px-4" data-bs-dismiss="modal">關閉視窗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 影音彈窗播放視窗 (Video Modal) -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px; overflow: hidden;">
+                <div class="modal-header bg-dark text-white border-0 py-3">
+                    <h5 class="modal-title fw-bold fs-6" id="videoModalLabel">
+                        <i class="fa-solid fa-circle-play text-danger me-2"></i> 苗栗銅鑼杭菊節啟動記者會 ✕ USR 產學推廣全紀錄
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" id="closeModalBtn"></button>
+                </div>
+                <div class="modal-body p-0 bg-black">
+                    <video id="modalVideoPlayer" controls style="width: 100%; display: block;" playsinline poster="cover_hangju.jpg">
+                        <source src="videos/tongluo_chrysanthemum_1151105.mp4" type="video/mp4">
+                        您的瀏覽器不支援 HTML5 影片播放。
+                    </video>
+                </div>
+                <div class="modal-footer bg-light border-0 py-2 d-flex justify-content-between">
+                    <small class="text-muted"><i class="fa-solid fa-satellite-dish text-danger me-1"></i> 敏實科技大學全球網路電視台 聯播</small>
+                    <a href="https://minthroc.wixsite.com/minth" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-sm rounded-pill px-3 fw-bold">
+                        前往電視台平台
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 頁尾 -->
     <footer>
         <div class="container">
-            <p class="mb-0">© 2026 敏實科技大學 人工智慧專業大學. All Rights Reserved.</p>
+            <p class="mb-1 fw-bold text-white">敏實科技大學 MINTH University of Science and Technology</p>
+            <p class="text-white-50 mb-0 small">大學社會責任 (USR) 推動中心 ｜ &copy; 115 敏實科技大學 版權所有</p>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 彈窗關閉時自動暫停影片
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideoPlayer');
+        videoModal.addEventListener('hidden.bs.modal', function () {
+            modalVideo.pause();
+        });
+    </script>
+
+    <!-- ==================== 子計畫 2：AI 技術應用在農業領域合作 成果紀實 Modal ==================== -->
+    <div class="modal fade" id="sub2DetailModal" tabindex="-1" aria-labelledby="sub2DetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary text-white py-3">
+                    <div>
+                        <span class="badge bg-white text-primary fw-bold mb-1">USR 個案計畫 ‧ 成果紀實</span>
+                        <h5 class="modal-title fw-bold" id="sub2DetailModalLabel">
+                            <i class="fa-solid fa-award me-2"></i>子計畫 2：AI 技術應用在農業領域合作
+                        </h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <!-- 計畫宗旨與推動成效卡片 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold text-primary mb-2">
+                                <i class="fa-solid fa-compass me-2"></i>計畫推動核心主軸與成效概述
+                            </h6>
+                            <p class="text-muted small mb-3">
+                                本子計畫結合智慧農業、物聯網 (AIoT) 感測系統與無人機技術，深入富農合作社杭菊產區與新竹在地茶園，推動智慧土壤監測、精準噴灑與 AI 應用規劃人才培育，引領傳統農業走向智慧高值化與永續經營。
+                            </p>
+                            <div class="row g-2 text-center">
+
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-seedling me-1 text-primary"></i>智慧農業合作場域</small>
+                                    <strong class="text-dark small">富農合作社 & 上展茶園</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-graduation-cap me-1 text-primary"></i>AI 專業人才培訓</small>
+                                    <strong class="text-dark small">AI應用規劃師認證研習</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-drone me-1 text-primary"></i>無人機田間應用</small>
+                                    <strong class="text-dark small">智慧航拍與精準噴灑技術</strong>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 精選活動成果相簿 -->
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa-solid fa-photo-film text-primary me-2"></i>
+                        <h6 class="fw-bold mb-0 text-dark">代表性活動與現場成果紀實</h6>
+                        <span class="ms-2 badge bg-primary-subtle text-primary small">純粹真實人物現場紀實 ‧ 嚴格排除紙本名冊</span>
+                    </div>
+
+
+                    <!-- 活動 1 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 1</span>
+                                富農合作社AI杭菊種植實作與智慧監測
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event1_hangju/photo_01.jpeg" alt="富農合作社AI杭菊種植實作與智慧監測" loading="lazy" onclick="viewImage('assets/sub2/event1_hangju/photo_01.jpeg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event1_hangju/photo_02.jpeg" alt="富農合作社AI杭菊種植實作與智慧監測" loading="lazy" onclick="viewImage('assets/sub2/event1_hangju/photo_02.jpeg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event1_hangju/photo_03.jpeg" alt="富農合作社AI杭菊種植實作與智慧監測" loading="lazy" onclick="viewImage('assets/sub2/event1_hangju/photo_03.jpeg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event1_hangju/photo_04.jpeg" alt="富農合作社AI杭菊種植實作與智慧監測" loading="lazy" onclick="viewImage('assets/sub2/event1_hangju/photo_04.jpeg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event1_hangju/photo_05.jpeg" alt="富農合作社AI杭菊種植實作與智慧監測" loading="lazy" onclick="viewImage('assets/sub2/event1_hangju/photo_05.jpeg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event1_hangju/photo_06.jpeg" alt="富農合作社AI杭菊種植實作與智慧監測" loading="lazy" onclick="viewImage('assets/sub2/event1_hangju/photo_06.jpeg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 2 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 2</span>
+                                AI應用規劃師考前複習與專案技術講座
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event2_ai_cert/photo_01.jpg" alt="AI應用規劃師考前複習與專案技術講座" loading="lazy" onclick="viewImage('assets/sub2/event2_ai_cert/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event2_ai_cert/photo_02.jpg" alt="AI應用規劃師考前複習與專案技術講座" loading="lazy" onclick="viewImage('assets/sub2/event2_ai_cert/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event2_ai_cert/photo_03.jpg" alt="AI應用規劃師考前複習與專案技術講座" loading="lazy" onclick="viewImage('assets/sub2/event2_ai_cert/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event2_ai_cert/photo_04.jpg" alt="AI應用規劃師考前複習與專案技術講座" loading="lazy" onclick="viewImage('assets/sub2/event2_ai_cert/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event2_ai_cert/photo_05.jpg" alt="AI應用規劃師考前複習與專案技術講座" loading="lazy" onclick="viewImage('assets/sub2/event2_ai_cert/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event2_ai_cert/photo_06.jpg" alt="AI應用規劃師考前複習與專案技術講座" loading="lazy" onclick="viewImage('assets/sub2/event2_ai_cert/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 3 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 3</span>
+                                人工智慧與大數據應用實戰篇研習講座
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event3_ai_model/photo_01.png" alt="人工智慧與大數據應用實戰篇研習講座" loading="lazy" onclick="viewImage('assets/sub2/event3_ai_model/photo_01.png')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event3_ai_model/photo_02.png" alt="人工智慧與大數據應用實戰篇研習講座" loading="lazy" onclick="viewImage('assets/sub2/event3_ai_model/photo_02.png')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event3_ai_model/photo_03.png" alt="人工智慧與大數據應用實戰篇研習講座" loading="lazy" onclick="viewImage('assets/sub2/event3_ai_model/photo_03.png')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event3_ai_model/photo_04.png" alt="人工智慧與大數據應用實戰篇研習講座" loading="lazy" onclick="viewImage('assets/sub2/event3_ai_model/photo_04.png')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event3_ai_model/photo_05.png" alt="人工智慧與大數據應用實戰篇研習講座" loading="lazy" onclick="viewImage('assets/sub2/event3_ai_model/photo_05.png')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event3_ai_model/photo_06.png" alt="人工智慧與大數據應用實戰篇研習講座" loading="lazy" onclick="viewImage('assets/sub2/event3_ai_model/photo_06.png')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 4 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 4</span>
+                                智慧農業田間噴灑技術與無人機應用研習
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (5 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event4_smart_spray/photo_01.jpg" alt="智慧農業田間噴灑技術與無人機應用研習" loading="lazy" onclick="viewImage('assets/sub2/event4_smart_spray/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event4_smart_spray/photo_02.jpg" alt="智慧農業田間噴灑技術與無人機應用研習" loading="lazy" onclick="viewImage('assets/sub2/event4_smart_spray/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event4_smart_spray/photo_03.jpg" alt="智慧農業田間噴灑技術與無人機應用研習" loading="lazy" onclick="viewImage('assets/sub2/event4_smart_spray/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event4_smart_spray/photo_04.jpg" alt="智慧農業田間噴灑技術與無人機應用研習" loading="lazy" onclick="viewImage('assets/sub2/event4_smart_spray/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub2/event4_smart_spray/photo_05.jpg" alt="智慧農業田間噴灑技術與無人機應用研習" loading="lazy" onclick="viewImage('assets/sub2/event4_smart_spray/photo_05.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer bg-white border-top py-2">
+                    <span class="text-muted small me-auto">
+                        <i class="fa-solid fa-shield-halved me-1 text-success"></i>
+                        本計畫資料皆經教育部 USR 計畫專案辦公室核定並排版歸檔
+                    </span>
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">關閉視窗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 子計畫 3：AI 及 ESG 食農教育特色餐飲分項計畫推動 成果紀實 Modal ==================== -->
+    <div class="modal fade" id="sub3DetailModal" tabindex="-1" aria-labelledby="sub3DetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary text-white py-3">
+                    <div>
+                        <span class="badge bg-white text-primary fw-bold mb-1">USR 個案計畫 ‧ 成果紀實</span>
+                        <h5 class="modal-title fw-bold" id="sub3DetailModalLabel">
+                            <i class="fa-solid fa-award me-2"></i>子計畫 3：AI 及 ESG 食農教育特色餐飲分項計畫推動
+                        </h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <!-- 計畫宗旨與推動成效卡片 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold text-primary mb-2">
+                                <i class="fa-solid fa-compass me-2"></i>計畫推動核心主軸與成效概述
+                            </h6>
+                            <p class="text-muted small mb-3">
+                                推動地方創生與綠色低碳餐飲，結合在地農會與在地優質食材（芎林番茄、寶山柑橘），研發特色低碳養生料理，並全面導入產品碳足跡查證訓練與第三方國際查證標準，建構產銷一體之綠色永續食農新模式。
+                            </p>
+                            <div class="row g-2 text-center">
+
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-utensils me-1 text-primary"></i>在地農特產研發</small>
+                                    <strong class="text-dark small">柑橘提拉米蘇 & 在地食農料理</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-calculator me-1 text-primary"></i>產品碳足跡盤查</small>
+                                    <strong class="text-dark small">ISO 14067 查證訓練班</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-award me-1 text-primary"></i>專業查證機制</small>
+                                    <strong class="text-dark small">內部查證與第三方國際認證</strong>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 精選活動成果相簿 -->
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa-solid fa-photo-film text-primary me-2"></i>
+                        <h6 class="fw-bold mb-0 text-dark">代表性活動與現場成果紀實</h6>
+                        <span class="ms-2 badge bg-primary-subtle text-primary small">純粹真實人物現場紀實 ‧ 嚴格排除紙本名冊</span>
+                    </div>
+
+
+                    <!-- 活動 1 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 1</span>
+                                寶山茶花柑橘節在地食農餐飲與柑橘提拉米蘇研發
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event1_citrus_food/photo_01.jpg" alt="寶山茶花柑橘節在地食農餐飲與柑橘提拉米蘇研發" loading="lazy" onclick="viewImage('assets/sub3/event1_citrus_food/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event1_citrus_food/photo_02.jpg" alt="寶山茶花柑橘節在地食農餐飲與柑橘提拉米蘇研發" loading="lazy" onclick="viewImage('assets/sub3/event1_citrus_food/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event1_citrus_food/photo_03.jpg" alt="寶山茶花柑橘節在地食農餐飲與柑橘提拉米蘇研發" loading="lazy" onclick="viewImage('assets/sub3/event1_citrus_food/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event1_citrus_food/photo_04.jpg" alt="寶山茶花柑橘節在地食農餐飲與柑橘提拉米蘇研發" loading="lazy" onclick="viewImage('assets/sub3/event1_citrus_food/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event1_citrus_food/photo_05.jpg" alt="寶山茶花柑橘節在地食農餐飲與柑橘提拉米蘇研發" loading="lazy" onclick="viewImage('assets/sub3/event1_citrus_food/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event1_citrus_food/photo_06.jpg" alt="寶山茶花柑橘節在地食農餐飲與柑橘提拉米蘇研發" loading="lazy" onclick="viewImage('assets/sub3/event1_citrus_food/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 2 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 2</span>
+                                產品碳足跡查證訓練班(第1期)實務研討
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event2_carbon_train1/photo_01.jpg" alt="產品碳足跡查證訓練班(第1期)實務研討" loading="lazy" onclick="viewImage('assets/sub3/event2_carbon_train1/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event2_carbon_train1/photo_02.jpg" alt="產品碳足跡查證訓練班(第1期)實務研討" loading="lazy" onclick="viewImage('assets/sub3/event2_carbon_train1/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event2_carbon_train1/photo_03.jpg" alt="產品碳足跡查證訓練班(第1期)實務研討" loading="lazy" onclick="viewImage('assets/sub3/event2_carbon_train1/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event2_carbon_train1/photo_04.jpg" alt="產品碳足跡查證訓練班(第1期)實務研討" loading="lazy" onclick="viewImage('assets/sub3/event2_carbon_train1/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event2_carbon_train1/photo_05.jpg" alt="產品碳足跡查證訓練班(第1期)實務研討" loading="lazy" onclick="viewImage('assets/sub3/event2_carbon_train1/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event2_carbon_train1/photo_06.jpg" alt="產品碳足跡查證訓練班(第1期)實務研討" loading="lazy" onclick="viewImage('assets/sub3/event2_carbon_train1/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 3 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 3</span>
+                                產品碳足跡查證訓練班(第2期)特色餐飲低碳烹調
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event3_carbon_train2/photo_01.jpg" alt="產品碳足跡查證訓練班(第2期)特色餐飲低碳烹調" loading="lazy" onclick="viewImage('assets/sub3/event3_carbon_train2/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event3_carbon_train2/photo_02.jpg" alt="產品碳足跡查證訓練班(第2期)特色餐飲低碳烹調" loading="lazy" onclick="viewImage('assets/sub3/event3_carbon_train2/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event3_carbon_train2/photo_03.jpg" alt="產品碳足跡查證訓練班(第2期)特色餐飲低碳烹調" loading="lazy" onclick="viewImage('assets/sub3/event3_carbon_train2/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event3_carbon_train2/photo_04.jpg" alt="產品碳足跡查證訓練班(第2期)特色餐飲低碳烹調" loading="lazy" onclick="viewImage('assets/sub3/event3_carbon_train2/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event3_carbon_train2/photo_05.jpg" alt="產品碳足跡查證訓練班(第2期)特色餐飲低碳烹調" loading="lazy" onclick="viewImage('assets/sub3/event3_carbon_train2/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event3_carbon_train2/photo_06.jpg" alt="產品碳足跡查證訓練班(第2期)特色餐飲低碳烹調" loading="lazy" onclick="viewImage('assets/sub3/event3_carbon_train2/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 4 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 4</span>
+                                產品碳足跡內部查證與第三者認證會議
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event4_audit_conf/photo_01.jpg" alt="產品碳足跡內部查證與第三者認證會議" loading="lazy" onclick="viewImage('assets/sub3/event4_audit_conf/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event4_audit_conf/photo_02.jpg" alt="產品碳足跡內部查證與第三者認證會議" loading="lazy" onclick="viewImage('assets/sub3/event4_audit_conf/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event4_audit_conf/photo_03.jpg" alt="產品碳足跡內部查證與第三者認證會議" loading="lazy" onclick="viewImage('assets/sub3/event4_audit_conf/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event4_audit_conf/photo_04.jpg" alt="產品碳足跡內部查證與第三者認證會議" loading="lazy" onclick="viewImage('assets/sub3/event4_audit_conf/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event4_audit_conf/photo_05.jpg" alt="產品碳足跡內部查證與第三者認證會議" loading="lazy" onclick="viewImage('assets/sub3/event4_audit_conf/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub3/event4_audit_conf/photo_06.jpg" alt="產品碳足跡內部查證與第三者認證會議" loading="lazy" onclick="viewImage('assets/sub3/event4_audit_conf/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer bg-white border-top py-2">
+                    <span class="text-muted small me-auto">
+                        <i class="fa-solid fa-shield-halved me-1 text-success"></i>
+                        本計畫資料皆經教育部 USR 計畫專案辦公室核定並排版歸檔
+                    </span>
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">關閉視窗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 子計畫 4：AI 智慧減碳旅遊城鄉體驗 成果紀實 Modal ==================== -->
+    <div class="modal fade" id="sub4DetailModal" tabindex="-1" aria-labelledby="sub4DetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary text-white py-3">
+                    <div>
+                        <span class="badge bg-white text-primary fw-bold mb-1">USR 個案計畫 ‧ 成果紀實</span>
+                        <h5 class="modal-title fw-bold" id="sub4DetailModalLabel">
+                            <i class="fa-solid fa-award me-2"></i>子計畫 4：AI 智慧減碳旅遊城鄉體驗
+                        </h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <!-- 計畫宗旨與推動成效卡片 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold text-primary mb-2">
+                                <i class="fa-solid fa-compass me-2"></i>計畫推動核心主軸與成效概述
+                            </h6>
+                            <p class="text-muted small mb-3">
+                                整合城鄉生態資源與客家聚落文化，透過無人機編程競賽訓練、低碳綠色遊程規劃與在地米食文化手作體驗，帶領師生及大眾走讀紙寮窩古法造紙、北埔老街及芎林農村，開拓智慧城鄉低碳觀光新型態。
+                            </p>
+                            <div class="row g-2 text-center">
+
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-map-location-dot me-1 text-primary"></i>低碳城鄉走讀場域</small>
+                                    <strong class="text-dark small">紙寮窩、北埔老街、芎林產區</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-laptop-code me-1 text-primary"></i>跨域科技教育</small>
+                                    <strong class="text-dark small">無人機編程與航拍攝影訓練</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-hands-holding-child me-1 text-primary"></i>文化生態沉浸體驗</small>
+                                    <strong class="text-dark small">古法網版造紙 & 在地米食體驗</strong>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 精選活動成果相簿 -->
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa-solid fa-photo-film text-primary me-2"></i>
+                        <h6 class="fw-bold mb-0 text-dark">代表性活動與現場成果紀實</h6>
+                        <span class="ms-2 badge bg-primary-subtle text-primary small">純粹真實人物現場紀實 ‧ 嚴格排除紙本名冊</span>
+                    </div>
+
+
+                    <!-- 活動 1 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 1</span>
+                                紙寮窩網版造紙體驗參訪暨低碳文化生態遊程
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event1_paper_making/photo_01.jpg" alt="紙寮窩網版造紙體驗參訪暨低碳文化生態遊程" loading="lazy" onclick="viewImage('assets/sub4/event1_paper_making/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event1_paper_making/photo_02.jpg" alt="紙寮窩網版造紙體驗參訪暨低碳文化生態遊程" loading="lazy" onclick="viewImage('assets/sub4/event1_paper_making/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event1_paper_making/photo_03.jpg" alt="紙寮窩網版造紙體驗參訪暨低碳文化生態遊程" loading="lazy" onclick="viewImage('assets/sub4/event1_paper_making/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event1_paper_making/photo_04.jpg" alt="紙寮窩網版造紙體驗參訪暨低碳文化生態遊程" loading="lazy" onclick="viewImage('assets/sub4/event1_paper_making/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event1_paper_making/photo_05.jpg" alt="紙寮窩網版造紙體驗參訪暨低碳文化生態遊程" loading="lazy" onclick="viewImage('assets/sub4/event1_paper_making/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event1_paper_making/photo_06.jpg" alt="紙寮窩網版造紙體驗參訪暨低碳文化生態遊程" loading="lazy" onclick="viewImage('assets/sub4/event1_paper_making/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 2 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 2</span>
+                                飛越場域×智慧共創：無人機編程競賽訓練營
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event2_drone_coding/photo_01.jpg" alt="飛越場域×智慧共創：無人機編程競賽訓練營" loading="lazy" onclick="viewImage('assets/sub4/event2_drone_coding/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event2_drone_coding/photo_02.jpg" alt="飛越場域×智慧共創：無人機編程競賽訓練營" loading="lazy" onclick="viewImage('assets/sub4/event2_drone_coding/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event2_drone_coding/photo_03.jpg" alt="飛越場域×智慧共創：無人機編程競賽訓練營" loading="lazy" onclick="viewImage('assets/sub4/event2_drone_coding/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event2_drone_coding/photo_04.jpg" alt="飛越場域×智慧共創：無人機編程競賽訓練營" loading="lazy" onclick="viewImage('assets/sub4/event2_drone_coding/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event2_drone_coding/photo_05.jpg" alt="飛越場域×智慧共創：無人機編程競賽訓練營" loading="lazy" onclick="viewImage('assets/sub4/event2_drone_coding/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event2_drone_coding/photo_06.jpg" alt="飛越場域×智慧共創：無人機編程競賽訓練營" loading="lazy" onclick="viewImage('assets/sub4/event2_drone_coding/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 3 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 3</span>
+                                番茄出任務：為芎農煮出改變地方的味道
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (3 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event3_tomato_mission/photo_01.jpg" alt="番茄出任務：為芎農煮出改變地方的味道" loading="lazy" onclick="viewImage('assets/sub4/event3_tomato_mission/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event3_tomato_mission/photo_02.jpg" alt="番茄出任務：為芎農煮出改變地方的味道" loading="lazy" onclick="viewImage('assets/sub4/event3_tomato_mission/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event3_tomato_mission/photo_03.jpg" alt="番茄出任務：為芎農煮出改變地方的味道" loading="lazy" onclick="viewImage('assets/sub4/event3_tomato_mission/photo_03.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 4 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 4</span>
+                                芎林鄉農會愛稻最高點與在地米食新體驗
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event4_qionglin_rice/photo_01.jpg" alt="芎林鄉農會愛稻最高點與在地米食新體驗" loading="lazy" onclick="viewImage('assets/sub4/event4_qionglin_rice/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event4_qionglin_rice/photo_02.jpg" alt="芎林鄉農會愛稻最高點與在地米食新體驗" loading="lazy" onclick="viewImage('assets/sub4/event4_qionglin_rice/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event4_qionglin_rice/photo_03.jpg" alt="芎林鄉農會愛稻最高點與在地米食新體驗" loading="lazy" onclick="viewImage('assets/sub4/event4_qionglin_rice/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event4_qionglin_rice/photo_04.jpg" alt="芎林鄉農會愛稻最高點與在地米食新體驗" loading="lazy" onclick="viewImage('assets/sub4/event4_qionglin_rice/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event4_qionglin_rice/photo_05.jpg" alt="芎林鄉農會愛稻最高點與在地米食新體驗" loading="lazy" onclick="viewImage('assets/sub4/event4_qionglin_rice/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub4/event4_qionglin_rice/photo_06.jpg" alt="芎林鄉農會愛稻最高點與在地米食新體驗" loading="lazy" onclick="viewImage('assets/sub4/event4_qionglin_rice/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer bg-white border-top py-2">
+                    <span class="text-muted small me-auto">
+                        <i class="fa-solid fa-shield-halved me-1 text-success"></i>
+                        本計畫資料皆經教育部 USR 計畫專案辦公室核定並排版歸檔
+                    </span>
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">關閉視窗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 子計畫 5：ESG 碳中和推展分項計畫推動 成果紀實 Modal ==================== -->
+    <div class="modal fade" id="sub5DetailModal" tabindex="-1" aria-labelledby="sub5DetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary text-white py-3">
+                    <div>
+                        <span class="badge bg-white text-primary fw-bold mb-1">USR 個案計畫 ‧ 成果紀實</span>
+                        <h5 class="modal-title fw-bold" id="sub5DetailModalLabel">
+                            <i class="fa-solid fa-award me-2"></i>子計畫 5：ESG 碳中和推展分項計畫推動
+                        </h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light">
+                    <!-- 計畫宗旨與推動成效卡片 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold text-primary mb-2">
+                                <i class="fa-solid fa-compass me-2"></i>計畫推動核心主軸與成效概述
+                            </h6>
+                            <p class="text-muted small mb-3">
+                                深化大學社會責任與企業永續發展鏈結，導入 AA1000 永續報告書查證標準、牛軋糖產品碳中和查核、企業森林碳匯評估與國家品質獎卓越經營評鑑體系，落實從校園到在地產業之淨零碳排與 ESG 實踐藍圖。
+                            </p>
+                            <div class="row g-2 text-center">
+
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-leaf me-1 text-primary"></i>淨零永續標準導入</small>
+                                    <strong class="text-dark small">AA1000 報告書查證工作坊</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-cookie-bite me-1 text-primary"></i>碳中和實踐標竿</small>
+                                    <strong class="text-dark small">在地牛軋糖產品碳中和查證</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-2 border rounded-2 bg-light">
+                                    <small class="text-muted d-block"><i class="fa-solid fa-medal me-1 text-primary"></i>卓越品質管理</small>
+                                    <strong class="text-dark small">國家品質獎全面卓越類自我評鑑</strong>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 精選活動成果相簿 -->
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa-solid fa-photo-film text-primary me-2"></i>
+                        <h6 class="fw-bold mb-0 text-dark">代表性活動與現場成果紀實</h6>
+                        <span class="ms-2 badge bg-primary-subtle text-primary small">純粹真實人物現場紀實 ‧ 嚴格排除紙本名冊</span>
+                    </div>
+
+
+                    <!-- 活動 1 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 1</span>
+                                AA1000標準在永續報告書查證研習工作坊
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event1_aa1000/photo_01.jpg" alt="AA1000標準在永續報告書查證研習工作坊" loading="lazy" onclick="viewImage('assets/sub5/event1_aa1000/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event1_aa1000/photo_02.jpg" alt="AA1000標準在永續報告書查證研習工作坊" loading="lazy" onclick="viewImage('assets/sub5/event1_aa1000/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event1_aa1000/photo_03.jpg" alt="AA1000標準在永續報告書查證研習工作坊" loading="lazy" onclick="viewImage('assets/sub5/event1_aa1000/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event1_aa1000/photo_04.jpg" alt="AA1000標準在永續報告書查證研習工作坊" loading="lazy" onclick="viewImage('assets/sub5/event1_aa1000/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event1_aa1000/photo_05.jpg" alt="AA1000標準在永續報告書查證研習工作坊" loading="lazy" onclick="viewImage('assets/sub5/event1_aa1000/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event1_aa1000/photo_06.jpg" alt="AA1000標準在永續報告書查證研習工作坊" loading="lazy" onclick="viewImage('assets/sub5/event1_aa1000/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 2 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 2</span>
+                                專案碳盤查查證訓練課程與牛軋糖產品碳足跡
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event2_carbon_footprint/photo_01.png" alt="專案碳盤查查證訓練課程與牛軋糖產品碳足跡" loading="lazy" onclick="viewImage('assets/sub5/event2_carbon_footprint/photo_01.png')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event2_carbon_footprint/photo_02.jpg" alt="專案碳盤查查證訓練課程與牛軋糖產品碳足跡" loading="lazy" onclick="viewImage('assets/sub5/event2_carbon_footprint/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event2_carbon_footprint/photo_03.jpg" alt="專案碳盤查查證訓練課程與牛軋糖產品碳足跡" loading="lazy" onclick="viewImage('assets/sub5/event2_carbon_footprint/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event2_carbon_footprint/photo_04.jpg" alt="專案碳盤查查證訓練課程與牛軋糖產品碳足跡" loading="lazy" onclick="viewImage('assets/sub5/event2_carbon_footprint/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event2_carbon_footprint/photo_05.jpg" alt="專案碳盤查查證訓練課程與牛軋糖產品碳足跡" loading="lazy" onclick="viewImage('assets/sub5/event2_carbon_footprint/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event2_carbon_footprint/photo_06.jpg" alt="專案碳盤查查證訓練課程與牛軋糖產品碳足跡" loading="lazy" onclick="viewImage('assets/sub5/event2_carbon_footprint/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 3 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 3</span>
+                                企業森林碳匯度量與碳權永續發展講座
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event3_forest_carbon/photo_01.jpg" alt="企業森林碳匯度量與碳權永續發展講座" loading="lazy" onclick="viewImage('assets/sub5/event3_forest_carbon/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event3_forest_carbon/photo_02.jpg" alt="企業森林碳匯度量與碳權永續發展講座" loading="lazy" onclick="viewImage('assets/sub5/event3_forest_carbon/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event3_forest_carbon/photo_03.jpg" alt="企業森林碳匯度量與碳權永續發展講座" loading="lazy" onclick="viewImage('assets/sub5/event3_forest_carbon/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event3_forest_carbon/photo_04.jpg" alt="企業森林碳匯度量與碳權永續發展講座" loading="lazy" onclick="viewImage('assets/sub5/event3_forest_carbon/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event3_forest_carbon/photo_05.jpg" alt="企業森林碳匯度量與碳權永續發展講座" loading="lazy" onclick="viewImage('assets/sub5/event3_forest_carbon/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event3_forest_carbon/photo_06.jpg" alt="企業森林碳匯度量與碳權永續發展講座" loading="lazy" onclick="viewImage('assets/sub5/event3_forest_carbon/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 活動 4 -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-light d-flex justify-content-between align-items-center py-2 px-3">
+                            <h6 class="mb-0 fw-bold text-dark">
+                                <span class="badge bg-secondary me-2">活動 4</span>
+                                卓越經營品質獎自我評鑑與ESG永續指標研討
+                            </h6>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                <i class="fa-solid fa-camera me-1"></i> 紀實相簿 (6 張)
+                            </span>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="sub1-photo-grid">
+
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event4_quality_eval/photo_01.jpg" alt="卓越經營品質獎自我評鑑與ESG永續指標研討" loading="lazy" onclick="viewImage('assets/sub5/event4_quality_eval/photo_01.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event4_quality_eval/photo_02.jpg" alt="卓越經營品質獎自我評鑑與ESG永續指標研討" loading="lazy" onclick="viewImage('assets/sub5/event4_quality_eval/photo_02.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event4_quality_eval/photo_03.jpg" alt="卓越經營品質獎自我評鑑與ESG永續指標研討" loading="lazy" onclick="viewImage('assets/sub5/event4_quality_eval/photo_03.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event4_quality_eval/photo_04.jpg" alt="卓越經營品質獎自我評鑑與ESG永續指標研討" loading="lazy" onclick="viewImage('assets/sub5/event4_quality_eval/photo_04.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event4_quality_eval/photo_05.jpg" alt="卓越經營品質獎自我評鑑與ESG永續指標研討" loading="lazy" onclick="viewImage('assets/sub5/event4_quality_eval/photo_05.jpg')">
+                                </div>
+                                <div class="sub1-photo-item">
+                                    <img src="assets/sub5/event4_quality_eval/photo_06.jpg" alt="卓越經營品質獎自我評鑑與ESG永續指標研討" loading="lazy" onclick="viewImage('assets/sub5/event4_quality_eval/photo_06.jpg')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer bg-white border-top py-2">
+                    <span class="text-muted small me-auto">
+                        <i class="fa-solid fa-shield-halved me-1 text-success"></i>
+                        本計畫資料皆經教育部 USR 計畫專案辦公室核定並排版歸檔
+                    </span>
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">關閉視窗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
