@@ -15,3 +15,10 @@ __pycache__/
 *.pyc
 .venv/
 env/
+
+# 影音大檔與備份檔
+*.mp4
+*.mov
+*.avi
+*_backup*
+
