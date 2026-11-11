@@ -1823,6 +1823,8 @@
 
 
 
+    
+
     <!-- ==================== 校務 Hub 1：在地食農養生菜料理 成果紀實 Modal ==================== -->
     <div class="modal fade" id="schoolHub1Modal" tabindex="-1" aria-labelledby="schoolHub1ModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -1854,18 +1856,32 @@
                         </div>
                     </div>
 
+                    <!-- 方案 A：影片切換播放器 -->
                     <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
-                        <h5 class="fw-bold text-dark mb-3 border-bottom pb-2">
-                            <i class="fa-solid fa-video text-danger me-2"></i>活動精彩影片：茶脈芯城茶宴會 ＆ 阿基師餐飲工作坊
-                        </h5>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <p class="text-muted small mb-1 fw-bold">《茶脈芯城茶宴會》展演實錄</p>
-                                <video controls class="w-100 rounded-3 shadow-sm" style="max-height: 260px; background: #000;" src="videos/hub6_tea_feast.mp4"></video>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="text-muted small mb-1 fw-bold">《阿基師餐飲工作坊》廚藝教學實錄</p>
-                                <video controls class="w-100 rounded-3 shadow-sm" style="max-height: 260px; background: #000;" src="videos/hub6_chef_workshop.mp4"></video>
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                            <h5 class="fw-bold text-dark mb-0">
+                                <i class="fa-solid fa-circle-play text-danger me-2"></i>活動精彩影片播放區（點選切換影片）
+                            </h5>
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle fw-bold" id="hub1Badge">現正播放：茶脈芯城茶宴會</span>
+                        </div>
+                        <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-sm mb-3 bg-black">
+                            <video id="hub1Player" controls src="videos/hub6_tea_feast.mp4"></video>
+                        </div>
+                        <div class="p-2 bg-light rounded-3 border">
+                            <small class="text-muted fw-bold d-block mb-2"><i class="fa-solid fa-list-ul me-1"></i>專案影片播放清單（點擊即可切換播放）：</small>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="button" class="btn btn-sm btn-danger active" onclick="switchVideo('hub1Player', 'videos/hub6_tea_feast.mp4', 'hub1Badge', '茶脈芯城茶宴會', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 1. 茶脈芯城茶宴會 (27.9MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub1Player', 'videos/hub6_chef_workshop.mp4', 'hub1Badge', '阿基師餐飲工作坊', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 2. 阿基師餐飲工作坊 (35.4MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub1Player', 'videos/hub6_tea_test_0402.mp4', 'hub1Badge', '4/2 茶宴茶餐試作剪輯', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 3. 4/2 茶宴試作剪輯 (32.3MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub1Player', 'videos/hub6_tea_test_0318.mp4', 'hub1Badge', '3/18 敏實科大試作茶餐', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 4. 3/18 試作茶餐影片 (9.5MB)
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1972,11 +1988,31 @@
                         </div>
                     </div>
 
+                    <!-- 方案 A：影片切換播放器 -->
                     <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
-                        <h5 class="fw-bold text-dark mb-3 border-bottom pb-2">
-                            <i class="fa-solid fa-video text-danger me-2"></i>活動精彩影片：大手牽小手活動紀錄
-                        </h5>
-                        <video controls class="w-100 rounded-3 shadow-sm" style="max-height: 320px; background: #000;" src="videos/hub7_hand_in_hand.mp4"></video>
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                            <h5 class="fw-bold text-dark mb-0">
+                                <i class="fa-solid fa-circle-play text-danger me-2"></i>活動精彩影片播放區（點選切換影片）
+                            </h5>
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle fw-bold" id="hub2Badge">現正播放：大手牽小手活動紀錄-1</span>
+                        </div>
+                        <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-sm mb-3 bg-black">
+                            <video id="hub2Player" controls src="videos/hub7_hand_in_hand.mp4"></video>
+                        </div>
+                        <div class="p-2 bg-light rounded-3 border">
+                            <small class="text-muted fw-bold d-block mb-2"><i class="fa-solid fa-list-ul me-1"></i>專案影片播放清單（點擊即可切換播放）：</small>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="button" class="btn btn-sm btn-danger active" onclick="switchVideo('hub2Player', 'videos/hub7_hand_in_hand.mp4', 'hub2Badge', '大手牽小手活動紀錄-1', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 1. 大手牽小手活動紀錄-1 (13.6MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub2Player', 'videos/hub7_hand_short.mp4', 'hub2Badge', '大手牽小手精華紀錄 (1)', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 2. 活動精華短片 (15.4MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub2Player', 'videos/hub7_hand_full.mp4', 'hub2Badge', '台三線智慧農業大手牽小手完整版', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 3. 完整活動紀實長版 (30.1MB)
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
@@ -2072,11 +2108,31 @@
                         </div>
                     </div>
 
+                    <!-- 方案 A：影片切換播放器 -->
                     <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
-                        <h5 class="fw-bold text-dark mb-3 border-bottom pb-2">
-                            <i class="fa-solid fa-video text-danger me-2"></i>活動精彩影片：銅鑼杭菊節智慧農業推廣實錄
-                        </h5>
-                        <video controls class="w-100 rounded-3 shadow-sm" style="max-height: 320px; background: #000;" src="videos/hub8_hangju_record.mp4"></video>
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                            <h5 class="fw-bold text-dark mb-0">
+                                <i class="fa-solid fa-circle-play text-danger me-2"></i>活動精彩影片播放區（點選切換影片）
+                            </h5>
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle fw-bold" id="hub3Badge">現正播放：銅鑼杭菊節智慧農業推廣</span>
+                        </div>
+                        <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-sm mb-3 bg-black">
+                            <video id="hub3Player" controls src="videos/hub8_hangju_record.mp4"></video>
+                        </div>
+                        <div class="p-2 bg-light rounded-3 border">
+                            <small class="text-muted fw-bold d-block mb-2"><i class="fa-solid fa-list-ul me-1"></i>專案影片播放清單（點擊即可切換播放）：</small>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="button" class="btn btn-sm btn-danger active" onclick="switchVideo('hub3Player', 'videos/hub8_hangju_record.mp4', 'hub3Badge', '銅鑼杭菊節智慧農業推廣實錄', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 1. 杭菊節智慧農業實錄 (23.5MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub3Player', 'videos/tongluo_chrysanthemum_1151105.mp4', 'hub3Badge', '銅鑼杭菊節啟動記者會', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 2. 杭菊節啟動記者會 (46.4MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub3Player', 'videos/hub8_hangju_intl_students.mp4', 'hub3Badge', '國際生在地文化體驗-銅鑼杭菊節', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 3. 國際生客庄走讀體驗 (37.1MB)
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
@@ -2166,11 +2222,37 @@
                         </div>
                     </div>
 
+                    <!-- 方案 A：影片切換播放器 -->
                     <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
-                        <h5 class="fw-bold text-dark mb-3 border-bottom pb-2">
-                            <i class="fa-solid fa-video text-danger me-2"></i>活動精彩影片：紙寮窩造紙創生工作坊實錄
-                        </h5>
-                        <video controls class="w-100 rounded-3 shadow-sm" style="max-height: 320px; background: #000;" src="videos/hub9_paper_making.mp4"></video>
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                            <h5 class="fw-bold text-dark mb-0">
+                                <i class="fa-solid fa-circle-play text-danger me-2"></i>活動精彩影片播放區（點選切換影片）
+                            </h5>
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle fw-bold" id="hub4Badge">現正播放：紙寮窩造紙工作坊</span>
+                        </div>
+                        <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-sm mb-3 bg-black">
+                            <video id="hub4Player" controls src="videos/hub9_paper_making.mp4"></video>
+                        </div>
+                        <div class="p-2 bg-light rounded-3 border">
+                            <small class="text-muted fw-bold d-block mb-2"><i class="fa-solid fa-list-ul me-1"></i>專案影片播放清單（點擊即可切換播放）：</small>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="button" class="btn btn-sm btn-danger active" onclick="switchVideo('hub4Player', 'videos/hub9_paper_making.mp4', 'hub4Badge', '創生共學紙寮窩造紙工作坊', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 1. 紙寮窩造紙工作坊 (46.4MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub4Player', 'videos/hub9_jiuxionghu.mp4', 'hub4Badge', '在地食農教育九芎湖參訪', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 2. 九芎湖食農參訪 (35.6MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub4Player', 'videos/hub9_xincheng_sugar.mp4', 'hub4Badge', '寶山新城風糖地方創生', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 3. 新城風糖黑糖創生 (28.0MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub4Player', 'videos/hub9_mr_olive.mp4', 'hub4Badge', '寶山橄欖先生產業鏈結', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 4. 橄欖先生綠農創生 (35.7MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub4Player', 'videos/hub9_target_management.mp4', 'hub4Badge', 'USR目標管理概念及運作方式', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 5. USR目標管理運作 (12.6MB)
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
@@ -2284,11 +2366,28 @@
                         </div>
                     </div>
 
+                    <!-- 方案 A：影片切換播放器 -->
                     <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
-                        <h5 class="fw-bold text-dark mb-3 border-bottom pb-2">
-                            <i class="fa-solid fa-video text-danger me-2"></i>活動精彩影片：文林閣與廣福宮文化參訪
-                        </h5>
-                        <video controls class="w-100 rounded-3 shadow-sm" style="max-height: 320px; background: #000;" src="videos/hub10_temple_visit.mp4"></video>
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom pb-2">
+                            <h5 class="fw-bold text-dark mb-0">
+                                <i class="fa-solid fa-circle-play text-danger me-2"></i>活動精彩影片播放區（點選切換影片）
+                            </h5>
+                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle fw-bold" id="hub5Badge">現正播放：文林閣與廣福宮參訪</span>
+                        </div>
+                        <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-sm mb-3 bg-black">
+                            <video id="hub5Player" controls src="videos/hub10_temple_visit.mp4"></video>
+                        </div>
+                        <div class="p-2 bg-light rounded-3 border">
+                            <small class="text-muted fw-bold d-block mb-2"><i class="fa-solid fa-list-ul me-1"></i>專案影片播放清單（點擊即可切換播放）：</small>
+                            <div class="d-flex flex-wrap gap-2">
+                                <button type="button" class="btn btn-sm btn-danger active" onclick="switchVideo('hub5Player', 'videos/hub10_temple_visit.mp4', 'hub5Badge', '客家地方宗教信仰文化參訪(文林閣、廣福宮)', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 1. 文林閣與廣福宮參訪 (14.6MB)
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="switchVideo('hub5Player', 'videos/hub10_square_mouth_lion.mp4', 'hub5Badge', '常磐大學客家方口獅彩繪體驗', this, 'danger')">
+                                    <i class="fa-solid fa-play me-1"></i> 2. 客家方口獅彩繪體驗 (19.9MB)
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="bg-white p-3 rounded-3 border mb-4 shadow-sm">
@@ -2444,6 +2543,45 @@
     </div>
 
 
+    <!-- 六大核心亮點 通用影片播放 Modal (方案 A 全清單切換) -->
+    <div class="modal fade" id="hlVideoModal" tabindex="-1" aria-labelledby="hlVideoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px; overflow: hidden;">
+                <div class="modal-header bg-dark text-white border-0 py-3">
+                    <h5 class="modal-title fw-bold fs-6 mb-0" id="hlVideoModalLabel">
+                        <i class="fa-solid fa-circle-play text-danger me-2"></i>核心亮點影音紀實播放
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0 bg-black text-center">
+                    <video id="hlVideoPlayer" controls class="w-100" style="max-height: 480px; outline: none;" src=""></video>
+                </div>
+                <div class="p-3 bg-light border-top">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="fw-bold text-dark small" id="hlVideoDesc">影片名稱</span>
+                        <span class="badge bg-primary text-white">點播中</span>
+                    </div>
+                    <!-- 快速切換清單 -->
+                    <div class="d-flex flex-wrap gap-1" id="hlQuickSwitch">
+                        <button type="button" class="btn btn-xs btn-outline-secondary py-1 px-2" style="font-size: 0.75rem;" onclick="playHlVideo('videos/hl12_carbon_training.mp4', '牛軋糖碳足跡查證訓練')">牛軋糖碳中和</button>
+                        <button type="button" class="btn btn-xs btn-outline-secondary py-1 px-2" style="font-size: 0.75rem;" onclick="playHlVideo('videos/hl13_energy_center.mp4', '智慧能源中心揭牌儀式')">ESG能源中心</button>
+                        <button type="button" class="btn btn-xs btn-outline-secondary py-1 px-2" style="font-size: 0.75rem;" onclick="playHlVideo('videos/tongluo_chrysanthemum_1151105.mp4', '富農合作社AI杭菊記者會')">AI杭菊記者會</button>
+                        <button type="button" class="btn btn-xs btn-outline-secondary py-1 px-2" style="font-size: 0.75rem;" onclick="playHlVideo('videos/hl15_tea_garden.mp4', '上展茶園智慧物聯網參訪')">上展茶園AIOT</button>
+                        <button type="button" class="btn btn-xs btn-outline-secondary py-1 px-2" style="font-size: 0.75rem;" onclick="playHlVideo('videos/hl16_tomato_task.mp4', '愛稻最高點DIY米食體驗')">番茄出任務</button>
+                        <button type="button" class="btn btn-xs btn-outline-secondary py-1 px-2" style="font-size: 0.75rem;" onclick="playHlVideo('videos/hl17_tv_expo.mp4', '大學社會責任博覽會特輯')">敏實電視台</button>
+                        <button type="button" class="btn btn-xs btn-outline-primary py-1 px-2" style="font-size: 0.75rem;" onclick="playHlVideo('videos/hl17_anniversary_p1.mp4', '114年度校慶轉播 PART 1')">校慶Part 1</button>
+                        <button type="button" class="btn btn-xs btn-outline-primary py-1 px-2" style="font-size: 0.75rem;" onclick="playHlVideo('videos/hl17_anniversary_p2.mp4', '114年度校慶轉播 PART 2')">校慶Part 2</button>
+                        <button type="button" class="btn btn-xs btn-outline-primary py-1 px-2" style="font-size: 0.75rem;" onclick="playHlVideo('videos/hl17_anniversary_p3.mp4', '114年度校慶轉播 PART 3')">校慶Part 3</button>
+                    </div>
+                </div>
+                <div class="modal-footer bg-white border-top py-2">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">關閉視窗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- 圖片放大預覽 Lightbox Modal -->
     <div class="modal fade" id="imageLightboxModal" tabindex="-1" aria-hidden="true" style="z-index: 1065;">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -2456,8 +2594,56 @@
         </div>
     </div>
 
-    <!-- 全局 JS 腳本：大圖預覽與影片智慧關閉控制 -->
+    <!-- 全局 JS 腳本：方案 A 影片切換函數、大圖預覽與智慧暫停控制 -->
     <script>
+        // 方案 A 專屬切換函數
+        function switchVideo(playerId, src, badgeId, title, btn, themeColor) {
+            const player = document.getElementById(playerId);
+            if (player) {
+                player.src = src;
+                player.play().catch(e => console.log('Autoplay handled:', e));
+            }
+            const badge = document.getElementById(badgeId);
+            if (badge) {
+                badge.textContent = '現正播放：' + title;
+            }
+            if (btn && btn.parentElement) {
+                btn.parentElement.querySelectorAll('button').forEach(b => {
+                    b.classList.remove('active', 'btn-danger', 'btn-success', 'btn-primary');
+                    if (themeColor === 'danger') {
+                        b.classList.add('btn-outline-danger');
+                    } else if (themeColor === 'success') {
+                        b.classList.add('btn-outline-success');
+                    } else {
+                        b.classList.add('btn-outline-primary');
+                    }
+                });
+                btn.classList.add('active');
+                if (themeColor === 'danger') {
+                    btn.classList.remove('btn-outline-danger');
+                    btn.classList.add('btn-danger');
+                } else if (themeColor === 'success') {
+                    btn.classList.remove('btn-outline-success');
+                    btn.classList.add('btn-success');
+                } else {
+                    btn.classList.remove('btn-outline-primary');
+                    btn.classList.add('btn-primary');
+                }
+            }
+        }
+
+        function playHlVideo(videoSrc, title) {
+            const player = document.getElementById('hlVideoPlayer');
+            const desc = document.getElementById('hlVideoDesc');
+            const modalTitle = document.getElementById('hlVideoModalLabel');
+            if (player) {
+                player.src = videoSrc;
+                player.play().catch(e => console.log('Autoplay handled:', e));
+            }
+            if (desc) desc.textContent = title;
+            if (modalTitle) modalTitle.innerHTML = '<i class="fa-solid fa-circle-play text-danger me-2"></i>' + title;
+        }
+
         function viewImage(src) {
             const img = document.getElementById('lightboxImage');
             if (img) {
@@ -2477,53 +2663,6 @@
                 });
             });
         });
-    </script>
-
-
-    <!-- 六大核心亮點 通用影片播放 Modal -->
-    <div class="modal fade" id="hlVideoModal" tabindex="-1" aria-labelledby="hlVideoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px; overflow: hidden;">
-                <div class="modal-header bg-dark text-white border-0 py-3">
-                    <h5 class="modal-title fw-bold fs-6" id="hlVideoModalLabel">
-                        <i class="fa-solid fa-circle-play text-danger me-2"></i>核心亮點影音紀實播放
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-0 bg-black text-center">
-                    <video id="hlVideoPlayer" controls class="w-100" style="max-height: 520px; outline: none;" src=""></video>
-                </div>
-                <div class="modal-footer bg-light border-0 py-2 d-flex justify-content-between">
-                    <span class="text-muted small" id="hlVideoDesc">敏實科技大學 USR 計畫核心亮點成果影音紀錄</span>
-                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">關閉視窗</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function playHlVideo(videoSrc, title) {
-            const player = document.getElementById('hlVideoPlayer');
-            const desc = document.getElementById('hlVideoDesc');
-            const modalTitle = document.getElementById('hlVideoModalLabel');
-            if (player) {
-                player.src = videoSrc;
-                player.play();
-            }
-            if (desc) desc.textContent = title;
-            if (modalTitle) modalTitle.innerHTML = '<i class="fa-solid fa-circle-play text-danger me-2"></i>' + title;
-        }
-
-        const hlModalEl = document.getElementById('hlVideoModal');
-        if (hlModalEl) {
-            hlModalEl.addEventListener('hidden.bs.modal', function () {
-                const player = document.getElementById('hlVideoPlayer');
-                if (player) {
-                    player.pause();
-                    player.src = '';
-                }
-            });
-        }
     </script>
 
 </body>
