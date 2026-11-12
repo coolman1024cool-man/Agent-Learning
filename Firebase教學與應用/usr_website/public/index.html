@@ -425,26 +425,63 @@
 
         /* 頁尾 */
         footer {
-            background-color: #1e293b;
+            background-color: #0f172a;
             color: #94a3b8;
-            padding: 26px 0 18px 0;
-            text-align: center;
-            font-size: 0.86rem;
-            margin-top: 45px;
+            padding: 48px 0 24px 0;
+            font-size: 0.9rem;
+            margin-top: 50px;
+            border-top: 4px solid var(--usr-green, #00882b);
+        }
+        footer .footer-title {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 1.1rem;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        footer .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 38px;
+            height: 2.5px;
+            background-color: var(--usr-green, #00882b);
+            border-radius: 2px;
+        }
+        footer p, footer li {
+            line-height: 1.7;
         }
         footer a {
             color: #cbd5e1;
             text-decoration: none;
+            transition: color 0.2s ease;
         }
         footer a:hover {
-            color: white;
+            color: #38bdf8;
+            text-decoration: underline;
+        }
+        footer .footer-divider {
+            border-color: rgba(255, 255, 255, 0.12);
+            margin: 32px 0 20px 0;
+        }
+        footer .footer-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.65rem;
+        }
+        footer .footer-info-icon {
+            width: 22px;
+            flex-shrink: 0;
+            margin-top: 3px;
         }
     </style>
 </head>
 <body>
 
     <!-- 頂部導覽列：俐落、不折行 -->
-    <header class="navbar-custom">
+    <header class="navbar-custom" id="top">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-2 gap-md-3">
                 <a href="#"><img src="logo.png" alt="敏實科技大學" class="nav-logo" onerror="this.src='usr_logo.jpg'"></a>
@@ -985,8 +1022,81 @@
     <!-- 頁尾 -->
     <footer>
         <div class="container">
-            <p class="mb-1 fw-bold text-white">敏實科技大學 MINTH University of Science and Technology</p>
-            <p class="text-white-50 mb-0 small">大學社會責任 (USR) 推動中心 ｜ &copy; 115 敏實科技大學 版權所有</p>
+            <div class="row g-4 text-start">
+                <!-- 左欄：機構單位與核心宗旨 -->
+                <div class="col-lg-4 col-md-12 pe-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-white p-2 rounded-3 d-inline-flex align-items-center justify-content-center shadow-sm me-3" style="min-width: 52px; height: 52px;">
+                            <img src="logo.png" alt="敏實科技大學 Logo" style="height: 38px; max-width: 100%; object-fit: contain;" onerror="this.src='usr_logo.jpg'">
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-white mb-0 fs-6">敏實科技大學</h5>
+                            <span class="text-white-50 small">MINTH University of Science and Technology</span>
+                        </div>
+                    </div>
+                    <div class="footer-title">大學社會責任 (USR) 推動中心</div>
+                    <p class="text-white-50 small mb-0">
+                        深耕新竹在地場域，落實「在地連結、智慧創新、永續共好」之核心精神。結合人工智慧、智慧農業、綠色碳排查證與社區青銀共伴，善盡大學社會責任。
+                    </p>
+                </div>
+
+                <!-- 中欄：USR 推動辦公室聯繫資訊 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-title">USR 推動辦公室聯繫資訊</div>
+                    <div class="small">
+                        <div class="footer-info-item">
+                            <i class="fa-solid fa-location-dot text-success footer-info-icon"></i>
+                            <div><strong class="text-white">地址：</strong><span>30741 新竹縣芎林鄉大華路1號</span></div>
+                        </div>
+                        <div class="footer-info-item">
+                            <i class="fa-solid fa-phone text-success footer-info-icon"></i>
+                            <div><strong class="text-white">總機電話：</strong><a href="tel:035927700">(03) 592-7700</a></div>
+                        </div>
+                        <div class="footer-info-item">
+                            <i class="fa-solid fa-headset text-success footer-info-icon"></i>
+                            <div><strong class="text-white">招生專線：</strong><a href="tel:035120392">(03) 512-0392</a></div>
+                        </div>
+                        <div class="footer-info-item">
+                            <i class="fa-solid fa-building-columns text-success footer-info-icon"></i>
+                            <div><strong class="text-white">服務單位：</strong><span>敏實科技大學 大學社會責任推動辦公室</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右欄：數位平台策展與製作人 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-title">數位平台策展與製作人</div>
+                    <div class="small">
+                        <div class="footer-info-item">
+                            <i class="fa-solid fa-user-gear text-warning footer-info-icon"></i>
+                            <div><strong class="text-white">網站策展製作人：</strong><span class="text-warning fw-bold fs-6">邱正彥</span></div>
+                        </div>
+                        <div class="footer-info-item">
+                            <i class="fa-solid fa-id-badge text-warning footer-info-icon"></i>
+                            <div><strong class="text-white">職務角色：</strong><span>USR 專案推動 / 智慧自動化技術顧問</span></div>
+                        </div>
+                        <div class="footer-info-item">
+                            <i class="fa-solid fa-phone-volume text-warning footer-info-icon"></i>
+                            <div><strong class="text-white">專線/分機：</strong><a href="tel:035927700" class="text-warning text-decoration-none fw-bold">(03) 592-7700</a> <span class="badge bg-warning text-dark ms-1">分機 2800-1</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分隔線與底部版權宣告 -->
+            <hr class="footer-divider">
+            <div class="row align-items-center text-center text-md-start small">
+                <div class="col-md-8 text-center text-md-start mb-2 mb-md-0">
+                    <p class="mb-0 text-white-50">
+                        &copy; 115 敏實科技大學 大學社會責任 (USR) 推動中心 ｜ 版權所有 All Rights Reserved.
+                    </p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <a href="#top" class="text-white-50 text-decoration-none">
+                        <i class="fa-solid fa-arrow-up me-1"></i> 回到頂端
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
